@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Very simple HTTP server in python.
 
@@ -16,6 +18,8 @@ Send a POST request::
 
 """
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+
+
 import SocketServer
 
 class S(BaseHTTPRequestHandler):
@@ -42,6 +46,10 @@ class S(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         self._set_headers()
         self.wfile.write("<html><body><h1>POST!</h1><pre>" + post_data + "</pre></body></html>")
+	file = open('testfile.txt','w') 
+	file.write('Hello World') 
+	file.close() 
+     
 
 def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('', port)

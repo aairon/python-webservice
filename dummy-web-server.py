@@ -19,7 +19,8 @@ Send a POST request::
 """
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
-
+import subprocess
+import shlex
 import SocketServer
 
 class S(BaseHTTPRequestHandler):
@@ -49,8 +50,8 @@ class S(BaseHTTPRequestHandler):
 	file = open('testfile.txt','w') 
 	file.write('Hello World') 
 	file.close() 
+        subprocess.call(shlex.split('./test.sh param1 param2'))
      
-
 def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)

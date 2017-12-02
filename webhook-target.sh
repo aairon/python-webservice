@@ -3,7 +3,8 @@
 # kill progress
 # compile important-progress-program.p 
 # run important-progress-program.p
-sleep 1
 cd /tmp/learn-git
+git pull
+sleep 3
 pro -p important-progress-program.p 
 

@@ -46,12 +46,12 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         self._set_headers()
-        self.wfile.write("<html><body><h1>POST!</h1><pre>" + post_data + "</pre></body></html>")
+        self.wfile.write(post_data)
 	file = open('testfile.txt','w') 
 	file.write('Hello World') 
 	file.close() 
         #subprocess.call(shlex.split('./kill-last.sh'))
-        subprocess.call(shlex.split('./call-webhook.sh param1 param2'))
+        subprocess.call(shlex.split('./call-webhook.sh '+ post_data))
         #subprocess.call(shlex.split('./webhook-target.sh param1 param2'))
      
 def run(server_class=HTTPServer, handler_class=S, port=80):

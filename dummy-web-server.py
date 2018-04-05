@@ -47,7 +47,7 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         self._set_headers()
-        self.wfile.write(post_data)
+        self.wfile.write('yoyo')
 	file = open('testfile.txt','w') 
 	file.write('Hello World') 
 	file.close() 

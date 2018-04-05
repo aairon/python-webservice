@@ -23,6 +23,7 @@ import subprocess
 import shlex
 import SocketServer
 
+
 class S(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
@@ -36,30 +37,34 @@ class S(BaseHTTPRequestHandler):
 
     def do_HEAD(self):
         self._set_headers()
-        
+
     # def do_POST(self):
     #     # Doesn't do anything with posted data
     #     self._set_headers()
     #     self.wfile.write("<html><body><h1>POST!</h1></body></html>")
-        
+
     def do_POST(self):
         # Doesn't do anything with posted data
-        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-        post_data = self.rfile.read(content_length) # <--- Gets the data itself
+        # <--- Gets the size of data
+        content_length = int(self.headers['Content-Length'])
+        # <--- Gets the data itself
+        post_data = self.rfile.read(content_length)
         self._set_headers()
         self.wfile.write('yoyo')
-	file = open('testfile.txt','w') 
-	file.write('Hello World') 
-	file.close() 
-        #subprocess.call(shlex.split('./kill-last.sh'))
-        subprocess.call(shlex.split('./call-webhook.sh '+ post_data))
+        file = open('testfile.txt', 'w')
+        file.write('Hello World')
+        file.close()
+        # subprocess.call(shlex.split('./kill-last.sh'))
+        subprocess.call(shlex.split('./call-webhook.sh ' + post_data))
         #subprocess.call(shlex.split('./webhook-target.sh param1 param2'))
-     
+
+
 def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print 'Starting httpd...progress runner hook'
     httpd.serve_forever()
+
 
 if __name__ == "__main__":
     from sys import argv

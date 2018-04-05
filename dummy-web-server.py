@@ -54,7 +54,7 @@ class S(BaseHTTPRequestHandler):
         #doval = subprocess.check_output(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
 
         self._set_headers()
-        self.wfile.write('yoyo' + doval + 'bobo')
+        self.wfile.write('yoyo')
         file = open('testfile.txt', 'w')
         file.write('Hello World')
         file.close()

@@ -50,8 +50,8 @@ class S(BaseHTTPRequestHandler):
         # <--- Gets the data itself
         post_data = self.rfile.read(content_length)
         #subprocess.call(shlex.split('./call-webhook.sh ' + post_data))
-        #subprocess.call(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
-        daval = subprocess.check_output(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
+        subprocess.call(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
+        #doval = subprocess.check_output(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
 
         self._set_headers()
         self.wfile.write('yoyo' + doval + 'bobo')

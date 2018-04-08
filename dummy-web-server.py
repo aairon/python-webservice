@@ -53,8 +53,13 @@ class S(BaseHTTPRequestHandler):
         subprocess.call(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
         #doval = subprocess.check_output(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
 
+	lines = open('log').read().split("\n")
+
+
         self._set_headers()
         self.wfile.write('yoyo')
+        self.wfile.write('gogo')
+        self.wfile.write(lines)
         file = open('testfile.txt', 'w')
         file.write('Hello World')
         file.close()

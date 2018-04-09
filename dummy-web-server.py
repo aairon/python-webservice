@@ -49,15 +49,25 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         # <--- Gets the data itself
         post_data = self.rfile.read(content_length)
-        #subprocess.call(shlex.split('./call-webhook.sh ' + post_data))
-        subprocess.call(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
-        #doval = subprocess.check_output(shlex.split('pro -p /tmp/learn-git/important-progress-program.p -param ' + post_data))
 
-	lines = open('log').read().split("\n")
+	# this used for run when github posts web hook 
+        #subprocess.call(shlex.split('./call-webhook.sh ' + post_data))
+
+	# test cust api
+        #subprocess.call(shlex.split('pro -p ~/git/cust-api/export-cust-xml.p -param ' + post_data))
+        #subprocess.call(shlex.split('mpro /fiscal/swstore -pf /fiscal/system/pro.opt -p /home/adsphr/git/cust-api/export-cust-xml.p -param ' + post_data))
+        #subprocess.call(shlex.split('mpro /fiscal/swstore -pf /fiscal/system/pro.opt -p ~/git/cust-api/export-cust-xml.p -param ' + post_data))
+        #doval = subprocess.check_output(shlex.split('cd /fiscal ; mpro /fiscal/swstore -pf system/pro.opt -p ~/git/cust-api/export-cust-xml.p -param ' + post_data))
+
+	# sys-ctl api gets sys ctl records from pos that begin with post_data in xml 
+        subprocess.call(shlex.split('mpro /fiscal/swstore -pf /fiscal/system/pro.opt -p  /home/adsphr/git/the-api/sys-ctl-xml.p -param ' + post_data))
+
+	lines = open('/tmp/sys-ctl.xml').read().split("\n")
 
 
         self._set_headers()
         self.wfile.write('yoyo')
+        self.wfile.write(post_data)
         self.wfile.write('gogo')
         self.wfile.write(lines)
         file = open('testfile.txt', 'w')

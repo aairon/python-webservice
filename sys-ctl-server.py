@@ -45,10 +45,10 @@ class S(BaseHTTPRequestHandler):
         # <--- Gets the data itself
         post_data = self.rfile.read(content_length)
 
-	# sys-ctl api gets sys ctl records from pos that begin with post_data in xml 
-        subprocess.call(shlex.split('mpro /fiscal/swstore -pf /fiscal/system/pro.opt -p  /home/adsphr/git/the-api/sys-ctl-xml.p -param ' + post_data))
+	# sys-ctl api gets sys ctl records from pos that begin with post_data in json
+        subprocess.call(shlex.split('mpro -pf /swdata/db/prog01/pro_opt1 -p  sys-ctl-json.p -param ' + post_data))
 
-	lines = open('/tmp/sys-ctl.xml').read().split("\n")
+	lines = open('/tmp/sys-ctl.json').read().split("\n")
 
         self._set_headers()
         self.wfile.write(lines)

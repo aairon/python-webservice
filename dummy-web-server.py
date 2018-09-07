@@ -66,9 +66,9 @@ class S(BaseHTTPRequestHandler):
 
 
         self._set_headers()
-        self.wfile.write('yoyo')
-        self.wfile.write(post_data)
-        self.wfile.write('gogo')
+        #self.wfile.write('yoyo')
+        #self.wfile.write(post_data)
+        #self.wfile.write('gogo')
         self.wfile.write(lines)
         file = open('testfile.txt', 'w')
         file.write('Hello World')

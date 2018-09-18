@@ -6,4 +6,4 @@ cd /fiscal
 echo 'pull pos-source into /fiscal'
 git pull origin 
 echo 'pull pos-source into /fiscal done'
-git log --name-status |head 
+git log -p --name-status |head 

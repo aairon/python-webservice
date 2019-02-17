@@ -61,6 +61,7 @@ class S(BaseHTTPRequestHandler):
 
 
 def run(server_class=HTTPServer, handler_class=S, port=80):
+    subprocess.call(shlex.split('rm /tmp/sys-ctl.json'))
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print 'Starting httpd...progress runner hook'

@@ -24,11 +24,14 @@ while ii > 0:
 	#GPIO.output(17, GPIO.HIGH)  
 
 	GPIO.output(27, GPIO.LOW)  
-	GPIO.output(27, GPIO.HIGH)  
+	#GPIO.output(27, GPIO.HIGH)  
+
 	GPIO.output(22, GPIO.LOW)  
 	#GPIO.output(22, GPIO.HIGH)  
+
 	GPIO.output(23, GPIO.LOW)  
-	#GPIO.output(23, GPIO.HIGH)  
+	GPIO.output(23, GPIO.HIGH)  
+
 	time.sleep(i)
 
 ########################
@@ -41,11 +44,11 @@ while ii > 0:
 	#GPIO.output(17, GPIO.HIGH)  
 
 	GPIO.output(27, GPIO.LOW)  
-	GPIO.output(27, GPIO.HIGH)  
+	#GPIO.output(27, GPIO.HIGH)  
 	GPIO.output(22, GPIO.LOW)  
 	#GPIO.output(22, GPIO.HIGH)  
 	GPIO.output(23, GPIO.LOW)  
-	#GPIO.output(23, GPIO.HIGH)  
+	GPIO.output(23, GPIO.HIGH)  
 	time.sleep(i)
 
 ########################
@@ -58,11 +61,11 @@ while ii > 0:
 	GPIO.output(17, GPIO.HIGH)  
 
 	GPIO.output(27, GPIO.LOW)  
-	GPIO.output(27, GPIO.HIGH)  
+	#GPIO.output(27, GPIO.HIGH)  
 	GPIO.output(22, GPIO.LOW)  
 	#GPIO.output(22, GPIO.HIGH)  
 	GPIO.output(23, GPIO.LOW)  
-	#GPIO.output(23, GPIO.HIGH)  
+	GPIO.output(23, GPIO.HIGH)  
 	time.sleep(i)
 ########################
 

@@ -43,6 +43,9 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_headers()
         self.wfile.write("<html><body><h1>from get hi!</h1></body></html>")
+        file = open('testfile.txt', 'w')
+        file.write('Hello World' + post_data)
+        file.close()
 
     def do_HEAD(self):
         self._set_headers()
@@ -56,8 +59,10 @@ class S(BaseHTTPRequestHandler):
 
         self._set_headers()
         #self.wfile.write(post_data)
-        #self.wfile.write('gogo')
-        self.wfile.write(lines)
+        self.wfile.write('gogo')
+        #self.wfile.write(lines)
+
+        subprocess.call(shlex.split('sudo python led2.py'))
 
         file = open('testfile.txt', 'w')
         file.write('Hello World' + post_data)

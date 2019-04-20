@@ -30,4 +30,5 @@ while ii > 0:
 	GPIO.output(23, GPIO.LOW)  
 	#GPIO.output(23, GPIO.HIGH)  
 	time.sleep(i)
+	ii = ii - 1.
 #####

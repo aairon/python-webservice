@@ -32,3 +32,5 @@ while ii > 0:
 	time.sleep(i)
 	ii = ii - 1.
 #####
+
+GPIO.cleanup()
